@@ -34,11 +34,11 @@
 									<goal>run</goal>
 								</goals>
 								<configuration>
-									<tasks>
+									<target>
 										<echo>Using env.test.properties</echo>
 										<copy file="src/main/resources/env.test.properties"
 											tofile="target/env.properties" />
-									</tasks>
+									</target>
 								</configuration>
 							</execution>
 						</executions>
@@ -154,9 +154,9 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>pre-clean phase</echo>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 					<execution>
@@ -166,9 +166,9 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>clean phase</echo>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 					<execution>
@@ -178,9 +178,9 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>post-clean phase</echo>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 
@@ -191,9 +191,9 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>validate phase</echo> 
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 					
@@ -204,9 +204,9 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>compile phase</echo> 
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 
@@ -217,9 +217,9 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>test phase</echo>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 
@@ -230,9 +230,9 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>package phase</echo>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 
@@ -243,9 +243,9 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>deploy phase</echo>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 
@@ -255,11 +255,11 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>Using env.test.properties</echo>
 								<copy file="src/main/resources/env.test.properties"
 									tofile="target/env.properties"></copy>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 					
@@ -270,9 +270,9 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>pre-site phase</echo>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 
@@ -283,9 +283,9 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>site phase</echo>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 
@@ -296,9 +296,9 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>post-site phase</echo>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 
@@ -309,49 +309,14 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<echo>site-deploy phase</echo>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.apache.maven.plugins
-										</groupId>
-										<artifactId>
-											maven-antrun-plugin
-										</artifactId>
-										<versionRange>
-											[3.0.0,)
-										</versionRange>
-										<goals>
-											<goal>run</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 	</build>
 	<reporting>
 		<plugins>
