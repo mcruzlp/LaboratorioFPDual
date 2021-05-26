@@ -18,8 +18,8 @@ public class Especialista {
 	String ape1Esp;
 	String ape2Esp;
 	String especialidad;
-	String emailPac;
-	int tlfnPac;
+	String emailEsp;
+	int tlfnEsp;
 	
 	public Especialista() {
 		
@@ -28,8 +28,18 @@ public class Especialista {
 	public Especialista(ResultSet result) {
 		try {
 			this.codEsp = result.getInt("codEsp");
+			this.nomEsp = result.getString("nomEsp");
+			this.ape1Esp = result.getString("ape1Esp");
+			this.ape2Esp = result.getString("ape2Esp");
+			this.especialidad = result.getString("especialidad");
+			this.emailEsp = result.getString("emailEsp");
+			this.tlfnEsp = result.getInt("tlfnEsp");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public int getCodEsp() {
+		return this.codEsp;
 	}
 }

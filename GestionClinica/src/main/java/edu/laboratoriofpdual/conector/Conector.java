@@ -36,15 +36,15 @@ public class Conector {
 		}
 		return null;
 	}
-	
+
 	private String getURL() {
 		return new StringBuilder().append(prop.getProperty(MySQLConstants.URL_PREFIX))
-		.append(prop.getProperty(MySQLConstants.URL_HOST)).append(":")
-		.append(prop.getProperty(MySQLConstants.URL_PORT)).append("/")
-		.append(prop.getProperty(MySQLConstants.URL_SCHEMA)).append("?user=")
-		.append(prop.getProperty(MySQLConstants.USER)).append("&password=")
-		.append(prop.getProperty(MySQLConstants.PASSWD)).append("&useSSL=")
-		.append(prop.getProperty(MySQLConstants.URL_SSL)).toString();
-		}
+				.append(prop.getProperty(MySQLConstants.URL_HOST)).append(":")
+				.append(prop.getProperty(MySQLConstants.URL_PORT)).append("/")
+				.append(prop.getProperty(MySQLConstants.URL_SCHEMA)).append("?user=")
+				.append(prop.getProperty(MySQLConstants.USER)).append("&password=")
+				.append(prop.getProperty(MySQLConstants.PASSWD)).append("&useSSL=")
+				.append(prop.getProperty(MySQLConstants.URL_SSL)).toString();
+	}
 	// --- jdbc:mysql://localhost:3307/mydb?user=cruz&password=cruz&userSSL=false
 }

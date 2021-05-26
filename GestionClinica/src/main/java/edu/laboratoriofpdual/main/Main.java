@@ -6,18 +6,18 @@ import java.util.List;
 
 import edu.laboratoriofpdual.conector.Conector;
 import edu.laboratoriofpdual.dao.Cita;
-import edu.laboratoriofpdual.manager.impl.CitasManagerImpl;
-import edu.laboratoriofpdual.manager.impl.CountryManagerImpl;
-import edu.laboratoriofpdual.manager.impl.GeneralManagerImpl;
+import edu.laboratoriofpdual.manager.CitaManagerImpl;
+import edu.laboratoriofpdual.manager.PacienteManagerImpl;
 
 public class Main {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// Connects to the DB
 		Connection con = new Conector().getMySQLConnection();
 		try {
-//			//Looks for all the cities in the DB and prints them.
-//			 System.out.println(new CityManagerImpl().findById(con, 2));
-//
+//			//Looks for all the citas in the DB and prints them.
+			System.out.println(new CitaManagerImpl().findById(con,2));
+//			System.out.println(con.getCatalog());
+			
 //			List<Country> countries = new CountryManager().findBySurfaceAreaBetween(con, BigDecimal.valueOf(100),
 //					BigDecimal.valueOf(1000));
 //			System.out.println(countries.size());

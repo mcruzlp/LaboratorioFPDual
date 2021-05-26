@@ -10,7 +10,7 @@ import edu.laboratoriofpdual.conector.Conector;
 import edu.laboratoriofpdual.dao.Cita;
 import edu.laboratoriofpdual.dao.Paciente;
 import edu.laboratoriofpdual.manager.CitaManager;
-import edu.laboratoriofpdual.manager.impl.CitaManagerImpl;
+import edu.laboratoriofpdual.manager.CitaManagerImpl;
 
 public class CitaController {
 
@@ -22,10 +22,10 @@ public class CitaController {
 
 	public List<Cita> getAllCitas() throws ClassNotFoundException, SQLException {
 		try (Connection con = new Conector().getMySQLConnection()) {
-			List<Country> countries = new ArrayList<>();
-			Country conun = new Country();
+			List<Paciente> pacientes = new ArrayList<>();
+			Paciente conun = new Paciente();
 			Consumer<Cita> consu = data -> {
-				countries.add(data.getCountry());
+				pacientes.add(data.getCodPac(data));
 				System.out.println(conun);
 			};
 			citaManager.findAll(con).forEach(consu);

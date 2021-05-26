@@ -20,15 +20,35 @@ import edu.laboratoriofpdual.dao.Paciente;
 public interface CitaManager {
 
 	/**
-	 * Finds all the cities in the DB
+	 * Encuentra todas las citas guardadas en la base de datos
 	 * 
 	 * @param con DB connection
 	 * @return a {@link List} of {@link Cita}
 	 */
-	public List<Cita> findAll(Connection con);
+	public List<Cita> findAll(Connection con); //{
+//		try (Statement stmt = con.createStatement()) {
+//			ResultSet result = stmt.executeQuery("SELECT * FROM Cita");
+//			result.beforeFirst();//posiciona el puntero antes del dato que busco para asegurarme de que lee el intervalo completo
+//			
+//			List<Cita> citas = new ArrayList<>();
+//			Map<Integer, String> pacientes = new HashMap();
+//			
+//			while (result.next()) {
+//				citas.add(new Cita(result));
+//				pacientes.put(result.getInt("codPac"), result.getString("dniPac"));
+//			}
+//			
+//			fillPacientes(con, pacientes, citas);
+//			return citas;
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//			return null;
+//		}
+//}
+
 
 	/**
-	 * Find an specific cities from the DB
+	 * Find an specific citas from the DB
 	 * 
 	 * @param con DB connection
 	 * @param id the city id
