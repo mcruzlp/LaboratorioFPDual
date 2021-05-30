@@ -1,0 +1,124 @@
+/**************** FUENTES *******************************/
+
+@font-face {
+	src: url("../fonts/Lato/Lato-Bold.ttf");
+	font-family: titles;
+}
+
+@font-face {
+	src: url("../fonts/Lato/Lato-Regular.ttf");
+	font-family: body;
+}
+
+/******************* BARRA DE NAVEGACIÓN ***********************/
+.navbar {
+	background-color: white;
+	color: black;
+	font-family: titles;
+	font-size: 1.5em;
+}
+.navbar-brand {
+	padding: 5px;
+}
+
+.nav-item {
+	padding: 5px;
+}
+
+.form-inline {
+	position: right;
+}
+
+@media screen and (min-width: 992px) {
+	.navbar-toggler-icon {
+		display: none;
+	}
+}
+
+/******************* LAYOUT BÁSICO *************************/
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: #136d8e;
+	font-family: body;
+	border-color: #67b7e1;
+}
+
+a {
+	text-decoration: none;
+	color: #67b7e1;
+	font-weight: bold;
+}
+
+a:hover {
+	color: #88ccfb;
+}
+
+.btn {
+	background-color: #67b7e1;
+	color: white;
+}
+
+.btn:hover {
+	color: #88ccfb;
+}
+
+/********************** LOGIN *****************************/
+
+#wrapper {
+	background-color: white;
+}
+
+.material-icons {
+	font-family: "Material Icons";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px; /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+
+	/* Support for IE. */
+	font-feature-settings: "liga";
+}
+
+/********************** INTRO *****************************/
+.jumbotron {
+	background-image: url("../images/sl11.jpg");
+	border-radius: 0;
+	background-size: cover;
+	background-position: top center;
+	height: 100%;
+	margin: 0%;
+}
+
+#jumbotron-text {
+	background-color: #88ccfb;
+	background-position: bottom;
+	border-radius: 5px;
+	color: white;
+	opacity: 0.8;
+}
+
+/*********************** FOOTER ***************************/
+
+footer {
+	font-family: titles;
+	font-size: 1.25em;
+	color: #67b7e1;
+	background-color: #88ccfb;
+}

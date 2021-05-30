@@ -12,32 +12,45 @@ import lombok.ToString;
 @ToString
 public class Cita {
 
-		int codCita;
-		Paciente codPac;
-		String notas;
+	private String codCita;
+	private int codPac;
+	private String notas;
 
-		public Cita() {
-			
-		}
-		public Cita(ResultSet result) {
-			try {
-				this.codCita = result.getInt("codCita");
-				//this.codPac = result.getPaciente("codPac");
-				this.notas = result.getString("notas");
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+	public int getCodPac() {
+		return codPac;
+	}
 
-		public int getCodCita() {
-			return codCita;
-		}
-		public Paciente getCodPac(Cita apointment) {
-			return this.codPac;
-		}
-		public void setPaciente(Paciente paciente) {
-			this.codPac=codPac;
-		}
+	public void setCodPac(int codPac) {
+		this.codPac = codPac;
+	}
 
-		
+	public String getCodCita() {
+		return codCita;
+	}
+
+	public void setCodCita(String codCita) {
+		this.codCita = codCita;
+	}
+
+	public String getNotas() {
+		return notas;
+	}
+
+	public void setNotas(String notas) {
+		this.notas = notas;
+	}
+
+	public Cita() {
+
+	}
+
+	public Cita(ResultSet result) {
+		try {
+			this.codCita = result.getString("codCita");
+			this.setCodPac(result.getInt(Paciente.getCodPac()));
+			this.notas = result.getString("notas");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

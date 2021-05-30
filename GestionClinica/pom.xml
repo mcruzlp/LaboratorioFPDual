@@ -18,37 +18,15 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
-	<profiles>
-		<profile>
-			<id>test</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<version>3.0.0</version>
-						<executions>
-							<execution>
-								<phase>test</phase>
-								<goals>
-									<goal>run</goal>
-								</goals>
-								<configuration>
-									<target>
-										<echo>Using env.test.properties</echo>
-										<copy file="src/main/resources/env.test.properties"
-											tofile="target/env.properties" />
-									</target>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-
 	<dependencies>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -62,7 +40,7 @@
 			<version>5.5.2</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
@@ -75,13 +53,13 @@
 			<version>1.5.2</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-all</artifactId>
 			<version>1.3</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -101,7 +79,7 @@
 			<version>2.23.0</version>
 			<scope>test</scope>
 		</dependency>
-		
+    <!-- Complemento para envío de email a los pacientes -->
 		<dependency>
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
@@ -111,7 +89,7 @@
 
 	<build>
 		<plugins>
-			<!-- JUnit plugins-->
+			<!-- JUnit plugins -->
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.2</version>
@@ -120,16 +98,11 @@
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>2.22.2</version>
 			</plugin>
-			<!--/JUnit plugins-->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
-			</plugin>
+			<!--/JUnit plugins -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>3.8.2</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -140,181 +113,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.2.0</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>3.0.0</version>
-
-				<executions>
-					<execution>
-						<id>id.pre-clean</id>
-						<phase>pre-clean</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>pre-clean phase</echo>
-							</target>
-						</configuration>
-					</execution>
-					<execution>
-						<id>id.clean</id>
-						<phase>clean</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>clean phase</echo>
-							</target>
-						</configuration>
-					</execution>
-					<execution>
-						<id>id.post-clean</id>
-						<phase>post-clean</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>post-clean phase</echo>
-							</target>
-						</configuration>
-					</execution>
-
-					<execution>
-						<id>id.validate</id>
-						<phase>validate</phase>
-						<goals> 
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>validate phase</echo> 
-							</target>
-						</configuration>
-					</execution>
-					
-					<execution>
-						<id>id.compile</id>
-						<phase>compile</phase> 
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>compile phase</echo> 
-							</target>
-						</configuration>
-					</execution>
-
-					<execution>
-						<id>id.test</id>
-						<phase>test</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>test phase</echo>
-							</target>
-						</configuration>
-					</execution>
-
-					<execution>
-						<id>id.package</id>
-						<phase>package</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>package phase</echo>
-							</target>
-						</configuration>
-					</execution>
-
-					<execution>
-						<id>id.deploy</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>deploy phase</echo>
-							</target>
-						</configuration>
-					</execution>
-
-					<execution>
-						<phase>test</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>Using env.test.properties</echo>
-								<copy file="src/main/resources/env.test.properties"
-									tofile="target/env.properties"></copy>
-							</target>
-						</configuration>
-					</execution>
-					
-					<execution>
-						<id>id.pre-site</id>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>pre-site phase</echo>
-							</target>
-						</configuration>
-					</execution>
-
-					<execution>
-						<id>id.site</id>
-						<phase>site</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>site phase</echo>
-							</target>
-						</configuration>
-					</execution>
-
-					<execution>
-						<id>id.post-site</id>
-						<phase>post-site</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>post-site phase</echo>
-							</target>
-						</configuration>
-					</execution>
-
-					<execution>
-						<id>id.site-deploy</id>
-						<phase>site-deploy</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<echo>site-deploy phase</echo>
-							</target>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

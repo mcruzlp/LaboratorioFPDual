@@ -2,6 +2,7 @@ package edu.laboratoriofpdual.conector;
 
 /**
  * MySQL Constants class.
+ * 
  * @author jose.m.prieto.villar
  *
  */
@@ -15,5 +16,5 @@ public class MySQLConstants {
 	public static final String URL_PORT = "jdbc.mysql.url.port";
 	public static final String URL_SCHEMA = "jdbc.mysql.url.schema";
 	public static final String URL_SSL = "jdbc.mysql.url.ssl";
-	
+
 }
