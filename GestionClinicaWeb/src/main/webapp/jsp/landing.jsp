@@ -60,13 +60,16 @@
 			<div class="sidebar-heading">Gestión</div>
 
 			<!-- Nav Item - Tables -->
-			<li class="nav-item"><a class="nav-link" href="tables.jsp">
+			<li class="nav-item"><a class="nav-link" href="pacientes.jsp">
 					<i class="fas fa-fw fa-address-book"></i> <span>Pacientes</span>
 			</a></li>
 
 			<li class="nav-item"><a class="nav-link" href="citas.jsp"> <i
 					class="fas fa-fw fa-calendar"></i> <span>Citas</span>
 			</a></li>
+			<li class="nav-item"><a class="nav-link" href="especialistas.jsp"> <i
+          class="fas fa-fw fa-user"></i> <span>Usuarios</span>
+      </a></li>
 			<!-- Nav Item - Charts 
             <li class="nav-item">
                 <a class="nav-link" href="html/charts.html">
