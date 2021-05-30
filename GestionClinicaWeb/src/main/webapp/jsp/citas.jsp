@@ -150,6 +150,7 @@
 					<!-- Topbar Search -->
 					<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 						<div class="input-group">
+						<!-- Topbar Search 
 							<input type="text" class="form-control bg-light border-0 small"
 								placeholder="Buscar..." aria-label="Search"
 								aria-describedby="basic-addon2">
@@ -157,7 +158,7 @@
 								<button class="btn btn-primary" type="button">
 									<i class="fas fa-search fa-sm"></i>
 								</button>
-							</div>
+							</div>-->
 							<div>
 								<button
 									class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm dt-button buttons-create"
@@ -180,12 +181,13 @@
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
 
-						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+						<!-- Nav Item - Search Dropdown (Visible Only XS) 
 						<li class="nav-item dropdown no-arrow d-sm-none"><a
 							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
-						</a> <!-- Dropdown - Messages -->
+						</a>-->
+						<!-- Dropdown - Messages -->
 							<div
 								class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
 								aria-labelledby="searchDropdown">
@@ -354,23 +356,24 @@
 					<h1 class="h3 mb-2 text-gray-800">Listado de citas</h1>
 					<!-- DataTables -->
 					<div class="card shadow mb-4">
-						<div id="dataTables_wrapper"
+						<!--<div id="dataTables_wrapper"
 							class="dataTables_wrapper card-header py-3">
+							 
 							<button
 								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm dt-button buttons-create"
 								data-toggle="modal" data-target="#myModal1" tabindex="0"
 								aria-controls="dataTable" type="button">
 								<span>Nueva</span>
 							</button>
-							<!--<button
+							<button
                 class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm dt-button buttons-selected buttons-edit"
                 data-toggle="modal" data-target="#myModal2" tabindex="0" aria-controls="dataTable"
                 type="button"><span>Modificar</span></button>
               <button
                 class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm dt-button buttons-selected buttons-remove"
                 data-toggle="modal" data-target="#myModal3" tabindex="0" aria-controls="dataTable"
-                type="button"><span>Anular</span></button>-->
-						</div>
+                type="button"><span>Anular</span></button>
+						</div>-->
 						<div class="card-body">
 							<!-- The Modals -->
 							<div class="modal" id="myModal1">
@@ -392,15 +395,18 @@
 												</div>
 												<div class="form-row">
 													<div class="form-group col-md-6">
-														<label for="inputDate">Fecha</label> <select
-															id="inputDate" class="form-control">
-															<option selected>Elige...</option>
-														</select>
+														<label for="inputDate">Fecha</label>
+														<input type="date" id="fechacita">
 													</div>
 													<div class="form-group col-md-6">
-														<label for="inputHour">Hora</label> <select id="inputHour"
-															class="form-control">
+														<label for="inputHour">Hora</label>
+														<select id="inputHour" class="form-control">
 															<option selected>Elige...</option>
+															<option>16:00</option>
+															<option>17:00</option>
+															<option>18:00</option>
+															<option>19:00</option>
+															<option>20:00</option>
 														</select>
 													</div>
 												</div>
@@ -411,6 +417,7 @@
 											<button type="button"
 												class="btn btn-sm btn-primary shadow-sm"
 												data-dismiss="modal">Asignar</button>
+												<% %>
 										</div>
 									</div>
 								</div>
