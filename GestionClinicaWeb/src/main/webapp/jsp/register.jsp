@@ -40,7 +40,7 @@
 						<div class="text-center">
 							<h1 class="h4 text-gray-900 mb-2">Crea un usuario</h1>
 						</div>
-						<form class="user" method="get" id="nuevoUsuario" action="/clinicaweb/NuevoUsuario">
+						<form class="user" method="post" id="nuevoUsuario" action="/clinicaweb/NuevoUsuario">
 							<div class="row my-2">
 								<input type="text" class="form-control form-control-user"
 									name="inputName" placeholder="Nombre y apellidos" required>

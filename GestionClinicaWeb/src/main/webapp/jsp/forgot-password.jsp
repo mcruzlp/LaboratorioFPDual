@@ -41,7 +41,7 @@
                             <p class="mb-4">No te preocupes, estas cosas pasan. Introduce tu email y te enviaremos un
                                 enlace para restablecer tu contraseña.</p>
                         </div>
-                        <form class="user" method="get" id="forgot" action="/clinicaweb/Forgot">
+                        <form class="user" method="post" id="forgot" action="/clinicaweb/Forgot">
                             <div class="form-group">
                                 <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail"
                                     aria-describedby="emailHelp" placeholder="Introduce tu email aquí">

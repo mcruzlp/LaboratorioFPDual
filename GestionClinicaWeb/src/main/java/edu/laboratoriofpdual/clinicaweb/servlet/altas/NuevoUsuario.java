@@ -53,7 +53,7 @@ public class NuevoUsuario extends HttpServlet {
 			String passw = request.getParameter("inputPassword");
 
 			try (PreparedStatement prepStmt = con.prepareStatement(
-					"INSERT INTO especialista (nomEsp, especialidad, emailEsp, tlfnEsp, passw)) VALUES (?, ?, ?, ?, ?, ?)")) {
+					"INSERT INTO especialista (nomEsp, especialidad, emailEsp, tlfnEsp, passw) VALUES (?, ?, ?, ?, ?)")) {
 				prepStmt.setString(1, nomEsp);
 				prepStmt.setString(2, especialidad);
 				prepStmt.setString(3, emailEsp);
