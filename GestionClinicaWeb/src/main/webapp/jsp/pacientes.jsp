@@ -1,11 +1,11 @@
-<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+		pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="edu.laboratoriofpdual.conector.Conector"%>
 <%@page import="edu.laboratoriofpdual.conector.MySQLConstants"%>
 <%@page import="edu.laboratoriofpdual.dao.Paciente"%>
 <%@page import="edu.laboratoriofpdual.manager.PacientesManager"%>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,95 +13,94 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 <!-- enlace a favicon -->
-<link rel="shortcut icon" href="../images/favicon.png"
-	type="image/x-icon">
+<link rel="shortcut icon" href="/clinicaweb/images/favicon.png"
+		type="image/x-icon">
 <title>Clinica Nilo - Pacientes</title>
 <!-- Custom fonts for this template -->
-<link href="../vendor/fontawesome-free/css/all.css" rel="stylesheet"
-	type="text/css">
+<link href="/clinicaweb/vendor/fontawesome-free/css/all.css" rel="stylesheet"
+		type="text/css">
 <link
-	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet">
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="../css/sb-admin-2.css" rel="stylesheet">
+<link href="/clinicaweb/css/sb-admin-2.css" rel="stylesheet">
 
 <!-- Custom styles for this page -->
-<link href="../vendor/datatables/dataTables.bootstrap4.css"
-	rel="stylesheet">
+<link href="/clinicaweb/vendor/datatables/dataTables.bootstrap4.css"
+		rel="stylesheet">
 </head>
 
 <body id="page-top">
+		<!-- Page Wrapper -->
+		<div id="wrapper">
 
-	<!-- Page Wrapper -->
-	<div id="wrapper">
-	
-		<!-- Sidebar -->
-		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-		
-			<!-- Sidebar - Brand -->
-			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.jsp">
-				<div>
-					<img src="../images/logo-nilo-trans.png" height="50px" alt="logo">
-				</div>
-			</a>
+				<!-- Sidebar -->
+				<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+						id="accordionSidebar">
 
-			<!-- Divider -->
-			<hr class="sidebar-divider my-0">
+						<!-- Sidebar - Brand -->
+						<a class="sidebar-brand d-flex align-items-center justify-content-center"
+								href="index.jsp">
+								<div>
+										<img src="/clinicaweb/images/logo-nilo-trans.png" height="50px"
+												alt="logo">
+								</div>
+						</a>
 
-			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link" href="index.jsp">
-					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Inicio</span>
-			</a></li>
+						<!-- Divider -->
+						<hr class="sidebar-divider my-0">
 
-			<!-- Divider -->
-			<hr class="sidebar-divider">
+						<!-- Nav Item - Dashboard -->
+						<li class="nav-item active"><a class="nav-link" href="index.jsp">
+										<i class="fas fa-fw fa-tachometer-alt"></i> <span>Inicio</span>
+						</a></li>
 
-			<!-- Heading -->
-			<div class="sidebar-heading">Gestión</div>
+						<!-- Divider -->
+						<hr class="sidebar-divider">
 
-			<!-- Nav Item - Tables -->
-			<li class="nav-item"><a class="nav-link" href="pacientes.jsp">
-          <i class="fas fa-fw fa-address-book"></i> <span>Pacientes</span>
-      </a></li>
-      <li class="nav-item"><a class="nav-link" href="citas.jsp"> <i
-          class="fas fa-fw fa-calendar"></i> <span>Citas</span>
-      </a></li>
-      <li class="nav-item"><a class="nav-link" href="especialistas.jsp"> <i
-          class="fas fa-fw fa-user"></i> <span>Usuarios</span>
-      </a></li>
-			<!-- Nav Item - Charts 
+						<!-- Heading -->
+						<div class="sidebar-heading">Gestión</div>
+
+						<!-- Nav Item - Tables -->
+						<li class="nav-item"><a class="nav-link" href="pacientes.jsp"> <i
+										class="fas fa-fw fa-address-book"></i> <span>Pacientes</span></a></li>
+						<li class="nav-item"><a class="nav-link" href="citas.jsp"> <i
+										class="fas fa-fw fa-calendar"></i> <span>Citas</span></a></li>
+						<li class="nav-item"><a class="nav-link" href="especialistas.jsp">
+										<i class="fas fa-fw fa-user"></i> <span>Usuarios</span>
+						</a></li>
+						<!-- Nav Item - Charts 
             <li class="nav-item">
-                <a class="nav-link" href="html/charts.jsp">
+                <a class="nav-link" href="html/charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Facturación</span></a>
             </li>-->
 
-			<!-- Divider -->
-			<hr class="sidebar-divider d-none d-md-block">
+						<!-- Divider -->
+						<hr class="sidebar-divider d-none d-md-block">
 
-			<!-- Heading -->
-			<div class="sidebar-heading">Herramientas</div>
+						<!-- Heading -->
+						<div class="sidebar-heading">Herramientas</div>
 
-			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed" href="#"
-				data-toggle="collapse" data-target="#collapseTwo"
-				aria-expanded="true" aria-controls="collapseTwo"> <i
-					class="fas fa-fw fa-cog"></i> <span>Ajustes</span>
-			</a>
-				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-					data-parent="#accordionSidebar">
-					<!--<div class="bg-white py-2 collapse-inner rounded">
+						<!-- Nav Item - Pages Collapse Menu -->
+						<li class="nav-item"><a class="nav-link collapsed" href="#"
+								data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+								aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>Ajustes</span>
+						</a>
+								<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+										data-parent="#accordionSidebar">
+										<!--<div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.jsp">Buttons</a>
-                        <a class="collapse-item" href="cards.jsp">Cards</a>
+                        <a class="collapse-item" href="html/buttons.html">Buttons</a>
+                        <a class="collapse-item" href="html/cards.html">Cards</a>
                     </div>-->
-				</div></li>
+								</div></li>
 
-			<!-- Nav Item - Utilities Collapse Menu 
+						<!-- Nav Item - Utilities Collapse Menu 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -112,612 +111,636 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.jsp">Colors</a>
-                        <a class="collapse-item" href="utilities-border.jsp">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.jsp">Animations</a>
-                        <a class="collapse-item" href="utilities-other.jsp">Other</a>
+                        <a class="collapse-item" href="html/utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="html/utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="html/utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="html/utilities-other.html">Other</a>
                     </div>
                 </div>
             </li>-->
 
-			<!-- Divider -->
-			<hr class="sidebar-divider">
+						<!-- Divider -->
+						<hr class="sidebar-divider">
 
-			<!-- Sidebar Toggler (Sidebar) -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
-			</div>
-		</ul>
-		<!-- End of Sidebar -->
-
-		<!-- Content Wrapper -->
-		<div id="content-wrapper" class="d-flex flex-column">
-
-			<!-- Main Content -->
-			<div id="content">
-
-				<!-- Topbar -->
-				<nav
-					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-					<!-- Sidebar Toggle (Topbar) -->
-					<button id="sidebarToggleTop"
-						class="btn btn-link d-md-none rounded-circle mr-3">
-						<i class="fa fa-bars"></i>
-					</button>
-
-					<!-- Topbar Search -->
-					<form
-						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-						<div class="input-group">
-							<input type="text" class="form-control bg-light border-0 small"
-								placeholder="Buscar..." aria-label="Search"
-								aria-describedby="basic-addon2">
-							<div class="input-group-append">
-								<button class="btn btn-primary" type="button">
-									<i class="fas fa-search fa-sm"></i>
-								</button>
-							</div>
-							<!--<div class="input-group-append">
-								<button
-									class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm dt-button buttons-create"
-									data-toggle="modal" data-target="#myModal1" tabindex="0"
-									aria-controls="dataTable" type="button">
-									<span>Nuevo paciente</span>
-								</button>
-							</div>
-							<div class="input-group-append">
-								<button
-									class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm dt-button buttons-create"
-									data-toggle="modal" data-target="#myModal1" tabindex="0"
-									aria-controls="dataTable" type="button">
-									<span>Nueva cita</span>
-								</button>
-							</div>-->
+						<!-- Sidebar Toggler (Sidebar) -->
+						<div class="text-center d-none d-md-inline">
+								<button class="rounded-circle border-0" id="sidebarToggle"></button>
 						</div>
-					</form>
+				</ul>
+				<!-- End of Sidebar -->
 
-					<!-- Topbar Navbar -->
-					<ul class="navbar-nav ml-auto">
+				<!-- Content Wrapper -->
+				<div id="content-wrapper" class="d-flex flex-column">
 
-						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
-						<li class="nav-item dropdown no-arrow d-sm-none"><a
-							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
-						</a> <!-- Dropdown - Messages -->
-							<div
-								class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-								aria-labelledby="searchDropdown">
-								<form class="form-inline mr-auto w-100 navbar-search">
-									<div class="input-group">
-										<input type="text"
-											class="form-control bg-light border-0 small"
-											placeholder="Buscar..." aria-label="Search"
-											aria-describedby="basic-addon2">
-										<div class="input-group-append">
-											<button class="btn btn-primary" type="button">
-												<i class="fas fa-search fa-sm"></i>
-											</button>
-										</div>
-									</div>
-								</form>
-							</div></li>
+						<!-- Main Content -->
+						<div id="content">
 
-						<!-- Nav Item - Alerts -->
-						<li class="nav-item dropdown no-arrow mx-1"><a
-							class="nav-link dropdown-toggle" href="#" id="alertsDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <i class="fas fa-bell fa-fw"></i> <!-- Counter - Alerts -->
-								<span class="badge badge-danger badge-counter">3+</span>
-						</a> <!-- Dropdown - Alerts -->
-							<div
-								class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="alertsDropdown">
-								<h6 class="dropdown-header">Avisos</h6>
-								<a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="mr-3">
-										<div class="icon-circle bg-primary">
-											<i class="fas fa-file-alt text-white"></i>
-										</div>
-									</div>
-									<div>
-										<div class="small text-gray-500">December 12, 2019</div>
-										<span class="font-weight-bold">La próxima cita es en 15
-											minutos</span>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="mr-3">
-										<div class="icon-circle bg-success">
-											<i class="fas fa-donate text-white"></i>
-										</div>
-									</div>
-									<div>
-										<div class="small text-gray-500">December 7, 2019</div>
-										Este mes llevas facturados 500€
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="mr-3">
-										<div class="icon-circle bg-warning">
-											<i class="fas fa-exclamation-triangle text-white"></i>
-										</div>
-									</div>
-									<div>
-										<div class="small text-gray-500">December 2, 2019</div>
-										Spending Alert: We've noticed unusually high spending for your
-										account.
-									</div>
-								</a> <a class="dropdown-item text-center small text-gray-500"
-									href="#">Mostrar todos los avisos</a>
-							</div></li>
+								<!-- Topbar -->
+								<nav
+										class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-						<!-- Nav Item - Messages -->
-						<li class="nav-item dropdown no-arrow mx-1"><a
-							class="nav-link dropdown-toggle" href="#" id="messagesDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <i class="fas fa-envelope fa-fw"></i>
-								<!-- Counter - Messages --> <span
-								class="badge badge-danger badge-counter">7</span>
-						</a> <!-- Dropdown - Messages -->
-							<div
-								class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="messagesDropdown">
-								<h6 class="dropdown-header">Mensajes</h6>
-								<a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle"
-											src="../images/undraw_profile_1.svg" alt="">
-										<div class="status-indicator bg-success"></div>
-									</div>
-									<div class="font-weight-bold">
-										<div class="text-truncate">Hi there! I am wondering if
-											you can help me with a problem I've been having.</div>
-										<div class="small text-gray-500">Emily Fowler · 58m</div>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle"
-											src="../images/undraw_profile_2.svg" alt="">
-										<div class="status-indicator"></div>
-									</div>
-									<div>
-										<div class="text-truncate">I have the photos that you
-											ordered last month, how would you like them sent to you?</div>
-										<div class="small text-gray-500">Jae Chun · 1d</div>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle"
-											src="../images/undraw_profile_3.svg" alt="">
-										<div class="status-indicator bg-warning"></div>
-									</div>
-									<div>
-										<div class="text-truncate">Last month's report looks
-											great, I am very happy with the progress so far, keep up the
-											good work!</div>
-										<div class="small text-gray-500">Morgan Alvarez · 2d</div>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle"
-											src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-										<div class="status-indicator bg-success"></div>
-									</div>
-									<div>
-										<div class="text-truncate">Am I a good boy? The reason I
-											ask is because someone told me that people say this to all
-											dogs, even if they aren't good...</div>
-										<div class="small text-gray-500">Chicken the Dog · 2w</div>
-									</div>
-								</a> <a class="dropdown-item text-center small text-gray-500"
-									href="#">Leer todos los mensajes</a>
-							</div></li>
+										<!-- Sidebar Toggle (Topbar) -->
+										<button id="sidebarToggleTop"
+												class="btn btn-link d-md-none rounded-circle mr-3">
+												<i class="fa fa-bars"></i>
+										</button>
 
-						<div class="topbar-divider d-none d-sm-block"></div>
+										<!-- Topbar Search -->
+										<form
+												class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+												<div class="input-group">
+														<!-- <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..."
+                aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div> -->
+														<div>
+																<button
+																		class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm dt-button buttons-create m-1"
+																		data-toggle="modal" data-target="#myModal1" tabindex="0"
+																		aria-controls="dataTable" type="button">
+																		<span>Nuevo paciente</span>
+																</button>
+														</div>
+														<!-- <div>
+                                <button
+                                    class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm dt-button buttons-create m-1"
+                                    data-toggle="modal" data-target="#myModal1" tabindex="0"
+                                    aria-controls="dataTable" type="button">
+                                    <span>Nueva cita</span>
+                                </button>
+                            </div> -->
+												</div>
+										</form>
 
-						<!-- Nav Item - User Information -->
-						<li class="nav-item dropdown no-arrow"><a
-							class="nav-link dropdown-toggle" href="#" id="userDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small">Cruz
-									López</span> <img class="img-profile rounded-circle"
-								src="../images/IMG_0417.jpg">
-						</a> <!-- Dropdown - User Information -->
-							<div
-								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="#"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
-								</a> <a class="dropdown-item" href="#"> <i
-									class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-									Configuración
-								</a>
-								<!--<a class="dropdown-item" href="#">
+										<!-- Topbar Navbar -->
+										<ul class="navbar-nav ml-auto">
+
+												<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+												<li class="nav-item dropdown no-arrow d-sm-none">
+														<!--<a
+                            class="nav-link dropdown-toggle" href="#" id="searchDropdown"
+                            role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
+                          </a>--> <!-- Dropdown - Messages -->
+														<div
+																class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+																aria-labelledby="searchDropdown">
+																<form class="form-inline mr-auto w-100 navbar-search">
+																		<div class="input-group">
+																				<input type="text"
+																						class="form-control bg-light border-0 small"
+																						placeholder="Buscar..." aria-label="Search"
+																						aria-describedby="basic-addon2">
+																				<div class="input-group-append">
+																						<button class="btn btn-primary" type="button">
+																								<i class="fas fa-search fa-sm"></i>
+																						</button>
+																				</div>
+																		</div>
+																</form>
+														</div>
+												</li>
+
+												<!-- Nav Item - Alerts -->
+												<li class="nav-item dropdown no-arrow mx-1"><a
+														class="nav-link dropdown-toggle" href="#" id="alertsDropdown"
+														role="button" data-toggle="dropdown" aria-haspopup="true"
+														aria-expanded="false"> <i class="fas fa-bell fa-fw"></i> <!-- Counter - Alerts -->
+																<span class="badge badge-danger badge-counter">3+</span>
+												</a> <!-- Dropdown - Alerts -->
+														<div
+																class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+																aria-labelledby="alertsDropdown">
+																<h6 class="dropdown-header">Avisos</h6>
+																<a class="dropdown-item d-flex align-items-center" href="#">
+																		<div class="mr-3">
+																				<div class="icon-circle bg-primary">
+																						<i class="fas fa-file-alt text-white"></i>
+																				</div>
+																		</div>
+																		<div>
+																				<div class="small text-gray-500">December 12, 2019</div>
+																				<span class="font-weight-bold">La próxima cita es en
+																						15 minutos</span>
+																		</div>
+																</a> <a class="dropdown-item d-flex align-items-center" href="#">
+																		<div class="mr-3">
+																				<div class="icon-circle bg-success">
+																						<i class="fas fa-donate text-white"></i>
+																				</div>
+																		</div>
+																		<div>
+																				<div class="small text-gray-500">December 7, 2019</div>
+																				Este mes llevas facturados 500€
+																		</div>
+																</a> <a class="dropdown-item d-flex align-items-center" href="#">
+																		<div class="mr-3">
+																				<div class="icon-circle bg-warning">
+																						<i class="fas fa-exclamation-triangle text-white"></i>
+																				</div>
+																		</div>
+																		<div>
+																				<div class="small text-gray-500">December 2, 2019</div>
+																				Spending Alert: We've noticed unusually high spending for
+																				your account.
+																		</div>
+																</a> <a class="dropdown-item text-center small text-gray-500"
+																		href="#">Mostrar todos los avisos</a>
+														</div></li>
+
+												<!-- Nav Item - Messages -->
+												<li class="nav-item dropdown no-arrow mx-1"><a
+														class="nav-link dropdown-toggle" href="#" id="messagesDropdown"
+														role="button" data-toggle="dropdown" aria-haspopup="true"
+														aria-expanded="false"> <i class="fas fa-envelope fa-fw"></i> <!-- Counter - Messages -->
+																<span class="badge badge-danger badge-counter">7</span>
+												</a> <!-- Dropdown - Messages -->
+														<div
+																class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+																aria-labelledby="messagesDropdown">
+																<h6 class="dropdown-header">Mensajes</h6>
+																<a class="dropdown-item d-flex align-items-center" href="#">
+																		<div class="dropdown-list-image mr-3">
+																				<img class="rounded-circle"
+																						src="/clinicaweb/images/undraw_profile_1.svg" alt="">
+																				<div class="status-indicator bg-success"></div>
+																		</div>
+																		<div class="font-weight-bold">
+																				<div class="text-truncate">Hi there! I am wondering if
+																						you can help me with a problem I've been having.</div>
+																				<div class="small text-gray-500">Emily Fowler · 58m</div>
+																		</div>
+																</a> <a class="dropdown-item d-flex align-items-center" href="#">
+																		<div class="dropdown-list-image mr-3">
+																				<img class="rounded-circle"
+																						src="/clinicaweb/images/undraw_profile_2.svg" alt="">
+																				<div class="status-indicator"></div>
+																		</div>
+																		<div>
+																				<div class="text-truncate">I have the photos that you
+																						ordered last month, how would you like them sent to you?</div>
+																				<div class="small text-gray-500">Jae Chun · 1d</div>
+																		</div>
+																</a> <a class="dropdown-item d-flex align-items-center" href="#">
+																		<div class="dropdown-list-image mr-3">
+																				<img class="rounded-circle"
+																						src="/clinicaweb/images/undraw_profile_3.svg" alt="">
+																				<div class="status-indicator bg-warning"></div>
+																		</div>
+																		<div>
+																				<div class="text-truncate">Last month's report looks
+																						great, I am very happy with the progress so far, keep up
+																						the good work!</div>
+																				<div class="small text-gray-500">Morgan Alvarez · 2d</div>
+																		</div>
+																</a> <a class="dropdown-item d-flex align-items-center" href="#">
+																		<div class="dropdown-list-image mr-3">
+																				<img class="rounded-circle"
+																						src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+																				<div class="status-indicator bg-success"></div>
+																		</div>
+																		<div>
+																				<div class="text-truncate">Am I a good boy? The reason
+																						I ask is because someone told me that people say this to
+																						all dogs, even if they aren't good...</div>
+																				<div class="small text-gray-500">Chicken the Dog · 2w</div>
+																		</div>
+																</a> <a class="dropdown-item text-center small text-gray-500"
+																		href="#">Leer todos los mensajes</a>
+														</div></li>
+
+												<div class="topbar-divider d-none d-sm-block"></div>
+
+												<!-- Nav Item - User Information -->
+												<li class="nav-item dropdown no-arrow"><a
+														class="nav-link dropdown-toggle" href="#" id="userDropdown"
+														role="button" data-toggle="dropdown" aria-haspopup="true"
+														aria-expanded="false"> <span
+																class="mr-2 d-none d-lg-inline text-gray-600 small">Cruz
+																		López</span> <img class="img-profile rounded-circle"
+																src="/clinicaweb/images/IMG_0417.jpg">
+												</a> <!-- Dropdown - User Information -->
+														<div
+																class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+																aria-labelledby="userDropdown">
+																<a class="dropdown-item" href="#"> <i
+																		class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+																</a> <a class="dropdown-item" href="#"> <i
+																		class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+																		Configuración
+																</a>
+																<!--<a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Activity Log
                                     </a>-->
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
-									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Cerrar sesión
-								</a>
-							</div></li>
-					</ul>
-				</nav>
-				<!-- End of Topbar -->
+																<div class="dropdown-divider"></div>
+																<a class="dropdown-item" href="#" data-toggle="modal"
+																		data-target="#logoutModal"> <i
+																		class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+																		Cerrar sesión
+																</a>
+														</div></li>
+										</ul>
+								</nav>
+								<!-- End of Topbar -->
 
-				<!-- Begin Page Content -->
-				<div class="container-fluid">
-					<!-- Page Heading -->
-					<h1 class="h3 mb-2 text-gray-800">Listado de pacientes</h1>
-					<!-- DataTables -->
-					<div class="card shadow mb-4">
-						<div id="dataTables_wrapper"
-							class="dataTables_wrapper card-header py-3">
-							<button
-								class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm dt-button buttons-create"
-								data-toggle="modal" data-target="#myModal1" tabindex="0"
-								aria-controls="dataTable" type="button">
-								<span>Nuevo</span>
-							</button>
-							<!--<button
+								<!-- Begin Page Content -->
+								<div class="container-fluid">
+										<!-- Page Heading -->
+										<h1 class="h3 mb-2 text-gray-800">Listado de pacientes</h1>
+										<!-- DataTables -->
+										<div class="card shadow mb-4">
+												<!--<div id="dataTables_wrapper" class="dataTables_wrapper card-header py-3">
+                            <button
+                                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm dt-button buttons-create"
+                                data-toggle="modal" data-target="#myModal1" tabindex="0"
+                                aria-controls="dataTable" type="button">
+                                <span>Nuevo</span>
+                            </button>
+                            <button
                                 class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm dt-button buttons-selected buttons-edit"
                                 data-toggle="modal" data-target="#myModal2" tabindex="0" aria-controls="dataTable"
                                 type="button"><span>Editar</span></button>
                             <button
                                 class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm dt-button buttons-selected buttons-remove"
                                 data-toggle="modal" data-target="#myModal3" tabindex="0" aria-controls="dataTable"
-                                type="button"><span>Borrar</span></button>-->
-						</div>
-						<div class="card-body">
-							<!-- The Modals -->
-							<div class="modal" id="myModal1">
-								<div class="modal-dialog">
-									<div class="modal-content justify-content-center">
-										<!-- Modal Header -->
-										<div class="modal-header">
-											<h1 class="modal-title">Nuevo paciente</h1>
-											<button type="button" class="close" data-dismiss="modal">×</button>
+                                type="button"><span>Borrar</span></button>
+                      </div>-->
+												<div class="card-body">
+														<!-- The Modals -->
+
+														<!-- Nuevo paciente -->
+														<div class="modal" id="myModal1">
+																<div class="modal-dialog">
+																		<div class="modal-content justify-content-center">
+																				<!-- Modal Header -->
+																				<div class="modal-header">
+																						<h1 class="modal-title">Nuevo paciente</h1>
+																						<button type="button" class="close" data-dismiss="modal">×</button>
+																				</div>
+																				<!-- Modal body -->
+																				<div class="modal-body">
+																						<form class="container m-2" method="post" id="nuevopaciente"
+																								action="/clinicaweb/NuevoPaciente">
+																								<div class="form-row">
+																										<div class="form-group col-12">
+																												<label for="inputName">Nombre</label> <input
+																														type="text" class="form-control" name="nomPac"
+																														id="inputName">
+																										</div>
+																								</div>
+																								<div class="form-row">
+																										<div class="form-group col-md-6">
+																												<label for="inputDate">Fecha de nacimiento</label> <input
+																														name="fecNac" type="date" id="fechanacimiento">
+																										</div>
+																										<div class="form-group col-md-6">
+																												<label for="inputDNI">DNI</label> <input type="text"
+																														name="dniPac" class="form-control" id="inputDNI">
+																										</div>
+																								</div>
+																								<div class="form-row">
+																										<div class="form-group col-md-6">
+																												<label for="inputEmail">Email</label> <input
+																														name="emailPac" type="email" class="form-control"
+																														id="inputEmail">
+																										</div>
+																										<div class="form-group col-md-6">
+																												<label for="inputTlfn">Teléfono</label> <input
+																														name="tlfnPac" type="tel" class="form-control"
+																														id="inputTlfn">
+																										</div>
+																								</div>
+																								<div class="form-row">
+																										<div class="form-group col-12">
+																												<label for="inputAddress">Dirección</label> <input
+																														name="dirPac" type="text" class="form-control"
+																														id="inputAddress">
+																										</div>
+																								</div>
+																								<div class="form-row">
+																										<div class="form-group col-6">
+																												<label for="inputCode">Código postal</label> <input
+																														name="codPostal" type="text" class="form-control"
+																														id="inputCode">
+																										</div>
+																										<div class="form-group col-6">
+																												<label for="inputCity">Ciudad</label> <input
+																														name="ciudad" type="text" class="form-control"
+																														id="inputCity">
+																										</div>
+																								</div>
+																						</form>
+																				</div>
+																				<!-- Modal footer -->
+																				<div class="modal-footer">
+																						<button type="button" onclick="document.getElementById('nuevopaciente').submit();"
+																								class="btn btn-sm btn-primary shadow-sm"
+																								data-dismiss="modal">Crear</button>
+																				</div>
+																				<%
+																				String mensajeAlta = (String)request.getAttribute("Mensaje");
+																				if (mensajeAlta != null) {
+																				%>
+																				<div class="text-center">
+																						<p class="small" style="color:red"><%=mensajeAlta%></p>
+																				</div>
+																				<%
+																				}
+																				%>
+																		</div>
+																</div>
+																<button type="button" class="btn" data-toggle="modal"
+																		data-target="#myModal1">Guardar</button>
+														</div>
+
+														<!-- Editar paciente -->
+
+														<div class="modal" id="myModal2">
+																<div class="modal-dialog">
+																		<div class="modal-content justify-content-center">
+																				<!-- Modal Header -->
+																				<div class="modal-header">
+																						<h1 class="modal-title">Editar paciente</h1>
+																						<button type="button" class="close" data-dismiss="modal">×</button>
+																				</div>
+																				<!-- Modal body -->
+																				<div class="modal-body">
+                                            <form class="container m-2" method="post" id="modificapaciente"
+                                                action="/clinicaweb/EditaPaciente">
+                                                <div class="form-row">
+                                                    <div class="form-group col-12">
+                                                        <label for="inputName">Nombre</label> <input
+                                                            type="text" class="form-control" name="nomPac"
+                                                            id="inputName">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="inputDate">Fecha de nacimiento</label> <input
+                                                            name="fecNac" type="date" id="fechanacimiento">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="inputDNI">DNI</label> <input type="text"
+                                                            name="dniPac" class="form-control" id="inputDNI">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="inputEmail">Email</label> <input
+                                                            name="emailPac" type="email" class="form-control"
+                                                            id="inputEmail">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="inputTlfn">Teléfono</label> <input
+                                                            name="tlfnPac" type="tel" class="form-control"
+                                                            id="inputTlfn">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-12">
+                                                        <label for="inputAddress">Dirección</label> <input
+                                                            name="dirPac" type="text" class="form-control"
+                                                            id="inputAddress">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-6">
+                                                        <label for="inputCode">Código postal</label> <input
+                                                            name="codPostal" type="text" class="form-control"
+                                                            id="inputCode">
+                                                    </div>
+                                                    <div class="form-group col-6">
+                                                        <label for="inputCity">Ciudad</label> <input
+                                                            name="ciudad" type="text" class="form-control"
+                                                            id="inputCity">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+																				<!-- Modal footer -->
+																				<div class="modal-footer">
+																						<button type="button" onclick="document.getElementById('modificapaciente').submit();"
+																								class="btn btn-sm btn-primary shadow-sm"
+																								data-dismiss="modal">Guardar cambios</button>
+																				</div>
+																				<%
+																				String mensajeActualiza = (String)request.getAttribute("Mensaje");
+																				if (mensajeActualiza != null) {
+																				%>
+																				<div class="text-center">
+																						<p class="small" style="color:red"><%=mensajeActualiza%></p>
+																				</div>
+																				<%
+																				}
+																				%>
+																		</div>
+																</div>
+																<button type="button" class="btn" data-toggle="modal"
+																		data-target="#myModal2">Guardar</button>
+														</div>
+
+														<!-- Borrar paciente -->
+														<div class="modal" id="myModal3">
+																<div class="modal-dialog">
+																		<div class="modal-content justify-content-center">
+																				<!-- Modal Header -->
+																				<div class="modal-header">
+																						<h1 class="modal-title">Borrar paciente</h1>
+																						<button type="button" class="close" data-dismiss="modal">×</button>
+																				</div>
+																				<!-- Modal body -->
+																				<div class="modal-body">
+																						<form class="container m-2" method="post" id="borrapaciente"
+                                                action="/clinicaweb/BorraPaciente">
+																								<div class="text-center">
+																										<h1 class="h4 text-gray-900 mb-2">¿Estás segura
+																												de que quieres borrar los datos de este paciente?</h1>
+																										<p class="mb-4">Los cambios no podrán deshacerse.</p>
+																								</div>
+																								<div class="form-row">
+                                                    <div class="form-group col-12">
+                                                        <label for="inputName">Nombre</label> <input
+                                                            type="text" class="form-control" name="nomPac"
+                                                            id="inputName">
+                                                    </div>
+                                                </div>
+																								<div class="form-row">
+																										<div class="form-group col-md-6">
+																												<label for="inputDNI">DNI</label> <input type="text"
+                                                            name="dniPac" class="form-control" id="inputDNI">
+																										</div>
+																										<div class="form-group col-md-6">
+																												<label for="inputEmail">Email</label> <input
+                                                            name="emailPac" type="email" class="form-control"
+                                                            id="inputEmail">
+																										</div>
+																								</div>
+																						</form>
+																				</div>
+																				<!-- Modal footer -->
+																				<div class="modal-footer">
+																						<button type="button" onclick="document.getElementById('borrapaciente').submit();"
+																								class="btn btn-sm btn-primary shadow-sm"
+																								data-dismiss="modal">Borrar</button>
+																				</div>
+																				<%
+																				String mensajeBorra = (String)request.getAttribute("Mensaje"); 
+																				if (mensajeBorra != null) {
+																				%>
+																				<div class="text-center">
+																						<p class="small" style="color:red"><%=mensajeBorra%></p>
+																				</div>
+																				<%
+																				}
+																				%>
+																		</div>
+																</div>
+																<button type="button" class="btn" data-toggle="modal"
+																		data-target="#myModal3">Borrar</button>
+														</div>
+												</div>
+												<!-- TODO quitar espacio extra sobre "mostrar pacientes" -->
+												<div class="m-2">
+														<div class="table-responsive">
+																<table
+																		class="table table-striped table-bordered dataTable display"
+																		role="grid" id="pacientes" width="100%">
+																		<thead>
+																				<tr>
+																						<th></th>
+																						<th>Nº</th>
+																						<th>Nombre</th>
+																						<th>FecNac</th>
+																						<th>DNI</th>
+																						<th>Email</th>
+																						<th>Teléfono</th>
+																						<th>Dirección</th>
+																						<th>Código postal</th>
+																						<th>Ciudad</th>
+																						<th></th>
+																				</tr>
+																		</thead>
+																		<tfoot>
+																				<tr>
+																						<th></th>
+																						<th>Nº</th>
+																						<th>Nombre</th>
+																						<th>FecNac</th>
+																						<th>DNI</th>
+																						<th>Email</th>
+																						<th>Teléfono</th>
+																						<th>Dirección</th>
+																						<th>Código postal</th>
+																						<th>Ciudad</th>
+																						<th></th>
+																				</tr>
+																		</tfoot>
+																		<%
+																		Connection con = new Conector().getMySQLConnection();
+																		List<Paciente> pacientes = new PacientesManager().findAll(con);
+																		%>
+																		<tbody>
+																				<%
+																				for (Paciente p : pacientes) {
+																				%>
+																				<tr>
+																						<td><a data-toggle="modal" data-target="#myModal2"><i
+																										class="fas fa-fw fa-pencil-alt"></i></a></td>
+																						<td><%=p.getCodPac()%></td>
+																						<td><%=p.getNomPac()%></td>
+																						<td><%=p.getFecNac()%></td>
+																						<td><%=p.getDniPac()%></td>
+																						<td><%=p.getEmailPac()%></td>
+																						<td><%=p.getTlfnPac()%></td>
+																						<td><%=p.getDirPac()%></td>
+																						<td><%=p.getCodPostal()%></td>
+																						<td><%=p.getCiudad()%></td>
+																						<td><a data-toggle="modal" data-target="#myModal3"><i
+																										class="fas fa-fw fa-eraser"></i></a></td>
+																				</tr>
+																				<%
+																				}
+																				%>
+																		</tbody>
+																</table>
+														</div>
+												</div>
 										</div>
-										<!-- Modal body -->
-										<div class="modal-body">
-											<form class="container m-2">
-												<div class="form-row">
-													<div class="form-group col-4">
-														<label for="inputCodPac">Nº paciente</label> <input
-															type="number" class="form-control" id="inputCodPac"
-															placeholder="00001">
-													</div>
-												</div>
-												<div class="form-row">
-													<div class="form-group col-12">
-														<label for="inputName">Nombre</label> <input type="text"
-															class="form-control" id="inputName">
-													</div>
-												</div>
-												<div class="form-row">
-													<div class="form-group col-md-6">
-														<label for="inputDate">Fecha de nacimiento</label> <select
-															id="inputDate" class="form-control">
-															<option selected>Elige...</option>
-														</select>
-													</div>
-													<div class="form-group col-md-6">
-														<label for="inputDNI">DNI</label> <input type="text"
-															class="form-control" id="inputDNI">
-													</div>
-												</div>
-												<div class="form-row">
-													<div class="form-group col-md-6">
-														<label for="inputEmail">Email</label> <input type="email"
-															class="form-control" id="inputEmail">
-													</div>
-													<div class="form-group col-md-6">
-														<label for="inputTlfn">Teléfono</label> <input type="tel"
-															class="form-control" id="inputTlfn"
-															placeholder="600600600">
-													</div>
-												</div>
-												<div class="form-row">
-													<div class="form-group col-12">
-														<label for="inputAddress">Dirección</label> <input
-															type="text" class="form-control" id="inputAddress"
-															placeholder="C/Alcalá">
-													</div>
-												</div>
-												<div class="form-row">
-													<div class="form-group col-6">
-														<label for="inputCode">Código postal</label> <input
-															type="text" class="form-control" id="inputCode">
-													</div>
-													<div class="form-group col-6">
-														<label for="inputCity">Ciudad</label> <input type="text"
-															class="form-control" id="inputCity">
-													</div>
-												</div>
-											</form>
-										</div>
-										<!-- Modal footer -->
-										<div class="modal-footer">
-											<button type="button"
-												class="btn btn-sm btn-primary shadow-sm"
-												data-dismiss="modal">Crear</button>
-										</div>
-									</div>
 								</div>
-								<button type="button" class="btn" data-toggle="modal"
-									data-target="#myModal1">Guardar</button>
-							</div>
-
-							<!-- Editar paciente -->
-
-							<div class="modal" id="myModal2">
-								<div class="modal-dialog">
-									<div class="modal-content justify-content-center">
-										<!-- Modal Header -->
-										<div class="modal-header">
-											<h1 class="modal-title">Editar paciente</h1>
-											<button type="button" class="close" data-dismiss="modal">×</button>
-										</div>
-										<!-- Modal body -->
-										<div class="modal-body">
-											<form class="container m-2">
-												<div class="form-row">
-													<div class="form-group col-4">
-														<label for="inputCodPac">Nº paciente</label> <input
-															type="number" class="form-control" id="inputCodPac">
-													</div>
-												</div>
-												<div class="form-row">
-													<div class="form-group col-12">
-														<label for="inputName">Nombre</label> <input type="text"
-															class="form-control" id="inputName">
-													</div>
-												</div>
-												<div class="form-row">
-													<div class="form-group col-md-6">
-														<label for="inputDate">Fecha de nacimiento</label> <select
-															id="inputDate" class="form-control">
-															<option selected>Elige...</option>
-														</select>
-													</div>
-													<div class="form-group col-md-6">
-														<label for="inputDNI">DNI</label> <input type="text"
-															class="form-control" id="inputDNI">
-													</div>
-												</div>
-												<div class="form-row">
-													<div class="form-group col-md-6">
-														<label for="inputEmail">Email</label> <input type="email"
-															class="form-control" id="inputEmail">
-													</div>
-													<div class="form-group col-md-6">
-														<label for="inputTlfn">Teléfono</label> <input type="tel"
-															class="form-control" id="inputTlfn"
-															placeholder="600600600">
-													</div>
-												</div>
-												<div class="form-row">
-													<div class="form-group col-12">
-														<label for="inputAddress">Dirección</label> <input
-															type="text" class="form-control" id="inputAddress"
-															placeholder="C/Alcalá">
-													</div>
-												</div>
-												<div class="form-row">
-													<div class="form-group col-6">
-														<label for="inputCode">Código postal</label> <input
-															type="text" class="form-control" id="inputCode">
-													</div>
-													<div class="form-group col-6">
-														<label for="inputCity">Ciudad</label> <input type="text"
-															class="form-control" id="inputCity">
-													</div>
-												</div>
-											</form>
-										</div>
-										<!-- Modal footer -->
-										<div class="modal-footer">
-											<button type="button"
-												class="btn btn-sm btn-primary shadow-sm"
-												data-dismiss="modal">Guardar cambios</button>
-										</div>
-									</div>
-								</div>
-								<button type="button" class="btn" data-toggle="modal"
-									data-target="#myModal2">Guardar</button>
-							</div>
-
-							<!-- Borrar paciente -->
-
-							<div class="modal" id="myModal3">
-								<div class="modal-dialog">
-									<div class="modal-content justify-content-center">
-										<!-- Modal Header -->
-										<div class="modal-header">
-											<h1 class="modal-title">Borrar paciente</h1>
-											<button type="button" class="close" data-dismiss="modal">×</button>
-										</div>
-										<!-- Modal body -->
-										<div class="modal-body">
-											<form class="container m-2">
-												<div class="text-center">
-													<h1 class="h4 text-gray-900 mb-2">¿Estás segura de que
-														quieres borrar los datos de este paciente?</h1>
-													<p class="mb-4">Los cambios no podrán deshacerse.</p>
-												</div>
-												<div class="form-row">
-													<div class="form-group col-12">
-														<label for="inputName">Nombre</label> <input type="text"
-															class="form-control" id="inputName">
-													</div>
-												</div>
-												<div class="form-row">
-													<div class="form-group col-md-6">
-														<label for="inputDNI">DNI</label> <input type="text"
-															class="form-control" id="inputDNI">
-													</div>
-													<div class="form-group col-md-6">
-														<label for="inputEmail">email</label> <input type="text"
-															class="form-control" id="inputEmail">
-													</div>
-												</div>
-											</form>
-										</div>
-										<!-- Modal footer -->
-										<div class="modal-footer">
-											<button type="button"
-												class="btn btn-sm btn-primary shadow-sm"
-												data-dismiss="modal">Borrar</button>
-										</div>
-									</div>
-								</div>
-								<button type="button" class="btn" data-toggle="modal"
-									data-target="#myModal3">Borrar</button>
-							</div>
+								<!-- /.container-fluid -->
 						</div>
-
-						<!-- TODO quitar espacio extra sobre "mostrar pacientes" -->
-
-						<div class="m-2">
-							<div class="table-responsive">
-								<table
-									class="table table-striped table-bordered dataTable display"
-									role="grid" id="pacientes" width="100%">
-									<thead>
-										<tr>
-											<th></th>
-											<th>Nº</th>
-											<th>Nombre</th>
-											<th>FecNac</th>
-											<th>DNI</th>
-											<th>Email</th>
-											<th>Teléfono</th>
-											<th>Dirección</th>
-											<th>Código postal</th>
-											<th>Ciudad</th>
-											<th></th>
-										</tr>
-									</thead>
-									<tfoot>
-										<tr>
-											<th></th>
-											<th>Nº</th>
-											<th>Nombre</th>
-											<th>FecNac</th>
-											<th>DNI</th>
-											<th>Email</th>
-											<th>Teléfono</th>
-											<th>Dirección</th>
-											<th>Código postal</th>
-											<th>Ciudad</th>
-											<th></th>
-										</tr>
-									</tfoot>
-									<%
-									Connection con = new Conector().getMySQLConnection();
-									List<Paciente> pacientes = new PacientesManager().findAll(con);
-									%>
-									<tbody>
-										<%
-										for (Paciente p : pacientes) {
-										%>
-										<tr>
-											<td><a data-toggle="modal" data-target="#myModal2"><i
-													class="fas fa-fw fa-pencil-alt"></i></a></td>
-											<td><%=p.getCodPac()%></td>
-											<td><%=p.getNomPac()%></td>
-											<td><%=p.getFecNac()%></td>
-											<td><%=p.getDniPac()%></td>
-											<td><%=p.getEmailPac()%></td>
-											<td><%=p.getTlfnPac()%></td>
-											<td><%=p.getDirPac()%></td>
-											<td><%=p.getCodPostal()%></td>
-											<td><%=p.getCiudad()%></td>
-											<td><a data-toggle="modal" data-target="#myModal3"><i
-													class="fas fa-fw fa-eraser"></i></a></td>
-										</tr>
-										<%
-										}
-										%>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
+						<!-- End of Main Content -->
+						<!-- Footer -->
+						<footer class="sticky-footer bg-white">
+								<div class="container my-auto">
+										<div class="copyright text-center my-auto">
+												<span>Copyright &copy; Clínica Nilo 2021</span>
+										</div>
+								</div>
+						</footer>
+						<!-- End of Footer -->
 				</div>
-				<!-- /.container-fluid -->
-			</div>
-			<!-- End of Main Content -->
-			<!-- Footer -->
-			<footer class="sticky-footer bg-white">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Clínica Nilo 2021</span>
-					</div>
-				</div>
-			</footer>
-			<!-- End of Footer -->
+				<!-- End of Content Wrapper -->
 		</div>
-		<!-- End of Content Wrapper -->
-	</div>
-	<!-- End of Page Wrapper -->
+		<!-- End of Page Wrapper -->
 
-	<!-- Scroll to Top Button-->
-	<a class="scroll-to-top rounded" href="#page-top"> <i
-		class="fas fa-angle-up"></i>
-	</a>
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top"> <i
+				class="fas fa-angle-up"></i>
+		</a>
 
-	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">¿Estás segura
-						de que quieres salir?</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
+		<!-- Logout Modal-->
+		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+						<div class="modal-content">
+								<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">¿Estás segura de
+												que quieres salir?</h5>
+										<button class="close" type="button" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">×</span>
+										</button>
+								</div>
+								<div class="modal-body">Selecciona "Salir" para cerrar la sesión.</div>
+								<div class="modal-footer">
+										<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+										<a class="btn btn-primary" href="index.jsp">Salir</a>
+								</div>
+						</div>
 				</div>
-				<div class="modal-body">Selecciona "Salir" para cerrar la
-					sesión.</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" href="index.jsp">Salir</a>
-				</div>
-			</div>
 		</div>
-	</div>
 
-	<!----------------------- JavaScript -------------------------->
+		<!----------------------- JavaScript -------------------------->
 
-	<!-- Bootstrap core JavaScript -->
-	<script src="../vendor/jquery/jquery.js"></script>
-	<script src="../vendor/bootstrap/js/bootstrap.bundle.js"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script src="/clinicaweb/vendor/jquery/jquery.js"></script>
+		<script src="/clinicaweb/vendor/bootstrap/js/bootstrap.bundle.js"></script>
 
-	<!-- Core plugin JavaScript-->
-	<script src="../vendor/jquery-easing/jquery.easing.js"></script>
+		<!-- Core plugin JavaScript-->
+		<script src="/clinicaweb/vendor/jquery-easing/jquery.easing.js"></script>
 
-	<!-- Custom scripts for all pages -->
-	<script src="../js/sb-admin-2.js"></script>
+		<!-- Custom scripts for all pages -->
+		<script src="/clinicaweb/js/sb-admin-2.js"></script>
 
-	<!-- Page level plugins -->
-	<script src="../vendor/datatables/jquery.dataTables.js"></script>
-	<script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
-	<!-- Editor plugins -->
-	<script
-		src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
-	<script
-		src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-	<script
-		src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
-	<script
-		src="https://cdn.datatables.net/datetime/1.0.3/js/dataTables.dateTime.min.js"></script>
+		<!-- Page level plugins -->
+		<script src="/clinicaweb/vendor/datatables/jquery.dataTables.js"></script>
+		<script src="/clinicaweb/vendor/datatables/dataTables.bootstrap4.js"></script>
+		<!-- Editor plugins -->
+		<script
+				src="https://editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+		<script
+				src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+		<script
+				src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+		<script
+				src="https://cdn.datatables.net/datetime/1.0.3/js/dataTables.dateTime.min.js"></script>
 
 </body>
+
+
 </html>

@@ -1,16 +1,23 @@
 package edu.laboratoriofpdual.dao;
 
+/**
+ * Clase especialista
+ *
+ * @author Cruz López Pérez
+ */
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
+import lombok.NoArgsConstructor;
 
 @Getter
 @Setter
-@ToString
-
+@AllArgsConstructor
+@NoArgsConstructor
 public class Especialista {
 
 	private int codEsp;
@@ -18,51 +25,12 @@ public class Especialista {
 	private String especialidad;
 	private String emailEsp;
 	private int tlfnEsp;
-	
-	
+	private String passw;
 
-	public int getCodEsp() {
-		return codEsp;
-	}
-
-	public void setCodEsp(int codEsp) {
-		this.codEsp = codEsp;
-	}
-
-	public String getNomEsp() {
-		return nomEsp;
-	}
-
-	public void setNomEsp(String nomEsp) {
-		this.nomEsp = nomEsp;
-	}
-
-	public String getEspecialidad() {
-		return especialidad;
-	}
-
-	public void setEspecialidad(String especialidad) {
-		this.especialidad = especialidad;
-	}
-
-	public String getEmailEsp() {
-		return emailEsp;
-	}
-
-	public void setEmailEsp(String emailEsp) {
-		this.emailEsp = emailEsp;
-	}
-
-	public int getTlfnEsp() {
-		return tlfnEsp;
-	}
-
-	public void setTlfnEsp(int tlfnEsp) {
-		this.tlfnEsp = tlfnEsp;
-	}
-
-	public Especialista() {
-
+	@Override
+	public String toString() {
+		return "Usuario [" + codEsp + "]: " + nomEsp + "\n Especialidad: " + especialidad + "\n Email: "
+				+ emailEsp + "\n Teléfono: " + tlfnEsp + "\n Contraseña: " + passw;
 	}
 
 	public Especialista(ResultSet result) {
@@ -72,6 +40,7 @@ public class Especialista {
 			this.especialidad = result.getString("especialidad");
 			this.emailEsp = result.getString("emailEsp");
 			this.tlfnEsp = result.getInt("tlfnEsp");
+			this.passw = result.getString("passw");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

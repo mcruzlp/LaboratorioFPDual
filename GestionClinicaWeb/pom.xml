@@ -68,7 +68,7 @@
 			<version>2.23.0</version>
 			<scope>test</scope>
 		</dependency>
-    <!-- Complemento para envío de email a los pacientes -->
+    <!-- Complemento para envío de email -->
 		<dependency>
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>

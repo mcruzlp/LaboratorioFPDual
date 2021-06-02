@@ -1,11 +1,11 @@
 package edu.laboratoriofpdual.conector;
 
 /**
- * MySQL Constants class.
- * 
- * @author jose.m.prieto.villar
+ * Parámetros del servidor para la conexión con la base de datos
  *
+ * @author Cruz López Pérez
  */
+
 public class MySQLConstants {
 
 	public static final String PASSWD = "jdbc.mysql.passwd";

@@ -1,5 +1,11 @@
 package edu.laboratoriofpdual.conector;
 
+/**
+ * Conexión con la base de datos
+ *
+ * @author Cruz López Pérez
+ */
+
 import java.io.IOException;
 import java.util.Properties;
 import java.sql.Connection;

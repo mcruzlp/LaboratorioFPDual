@@ -1,5 +1,11 @@
 package edu.laboratoriofpdual.manager;
 
+/**
+ * Conexión con la tabla especialista.
+ *
+ * @author Cruz López Pérez
+ */
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,64 +17,69 @@ import java.util.List;
 import edu.laboratoriofpdual.dao.Especialista;
 
 public class EspecialistasManager {
-	
-	public void addEspecialista(Connection con, int codEsp, String nomEsp, String especialidad, String emailEsp, int tlfnEsp) {
+
+	public void addEspecialista(Connection con, String nomEsp, String especialidad, String emailEsp, int tlfnEsp, String passw) {
 		try (PreparedStatement prepStmt = con.prepareStatement(
-				"INSERT INTO especialista (codEsp, nomEsp, especialidad, emailEsp, tlfnEsp)) VALUES (?, ?, ?, ?, ?, ?)")) {
-			con.setAutoCommit(false);
-			prepStmt.setInt(1, codEsp);
-			prepStmt.setString(2, nomEsp);
-			prepStmt.setString(3, especialidad);
-			prepStmt.setString(4, emailEsp);
-			prepStmt.setInt(5, tlfnEsp);
+				"INSERT INTO especialista (nomEsp, especialidad, emailEsp, tlfnEsp, passw)) VALUES (?, ?, ?, ?, ?, ?)")) {
+			prepStmt.setString(1, nomEsp);
+			prepStmt.setString(2, especialidad);
+			prepStmt.setString(3, emailEsp);
+			prepStmt.setInt(4, tlfnEsp);
+			prepStmt.setString(5, passw);
 			prepStmt.executeUpdate();
-			System.out.println("Los datos del especialista se han almacenado correctamente");
+			System.out.println("Los datos del especialista se han guardado correctamente");
 			
-			con.commit();
+			con.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void updateEspecialista(Connection con, Especialista e) throws SQLException {
-		PreparedStatement prepStmt = con
-				.prepareStatement("UPDATE especialista SET nomEsp = ?, especialidad = ?, emailEsp = ?, tlfnEsp = ? WHERE nomEsp = ?");
-		prepStmt.setString(1, e.getNomEsp());
-		prepStmt.setString(2, e.getEspecialidad());
-		prepStmt.setString(3, e.getEmailEsp());
-		prepStmt.setInt(4, e.getTlfnEsp());
-		System.out.println("Los datos del especialista se han actualizado correctamente");
-
+	public void updateEspecialista(Connection con, String nomEsp, String especialidad, String emailEsp, int tlfnEsp, String passw) throws SQLException {
+		try (PreparedStatement prepStmt = con.prepareStatement(
+				"UPDATE especialista SET nomEsp = ?, especialidad = ?, emailEsp = ?, tlfnEsp = ?, passw = ? WHERE nomEsp = ?")) {
+		prepStmt.setString(1, nomEsp);
+		prepStmt.setString(2, especialidad);
+		prepStmt.setString(3, emailEsp);
+		prepStmt.setInt(4, tlfnEsp);
+		prepStmt.setString(5, passw);
 		prepStmt.executeUpdate();
-		prepStmt.close();
+		System.out.println("Los datos del especialista se han actualizado correctamente");
+		
+		con.close();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void deleteEspecialista(Connection con, String nomEsp) {
-		try (PreparedStatement prepStmt = con.prepareStatement("DELETE FROM especialista WHERE nomEsp = ?")) {
-			con.setAutoCommit(false);
+		try (PreparedStatement prepStmt = con.prepareStatement(
+				"DELETE FROM especialista WHERE nomEsp = ?")) {
 			prepStmt.setString(1, nomEsp);
 			prepStmt.executeUpdate();
 			System.out.println("Los datos del especialista se han borrado correctamente");
-			
-			con.commit();
+
+			con.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public List<Especialista> findAll(Connection con) {
 		try (Statement stmt = con.createStatement()) {
 			ResultSet result = stmt.executeQuery("SELECT * FROM especialista");
 			result.beforeFirst();
 
-			List<Especialista> especialistas = new ArrayList<>();
+			List<Especialista> esp = new ArrayList<>();
 
 			while (result.next()) {
-				especialistas.add(new Especialista(result));
+				esp.add(new Especialista(result));
 			}
 
-			return especialistas;
+			return esp;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -76,25 +87,45 @@ public class EspecialistasManager {
 		}
 	}
 
-	public Especialista findByName(Connection con, String nomEsp) {
+	public Especialista findByEmail(Connection con, String emailEsp) {
 		try (PreparedStatement prepStmt = con.prepareStatement("SELECT * FROM especialista WHERE nomEsp = ?")) {
 
-			prepStmt.setString(1, nomEsp);
+			prepStmt.setString(1, emailEsp);
 
 			ResultSet result = prepStmt.executeQuery();
 
-			Especialista especialistas = null;
+			Especialista esp = null;
 			if (result.next()) {
-				especialistas = new Especialista(result);
+				esp = new Especialista(result);
 			}
-			return especialistas;
+			return esp;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
-	//TODO BUSCAR TODOS LOS ESPECIALISTAS QUE TRATEN A UN MISMO PACIENTE
+
+	public Especialista findByUser(Connection con, String emailEsp, String passw) {
+		try (PreparedStatement prepStmt = con
+				.prepareStatement("SELECT * FROM especialista WHERE emailEsp = ? and passw = ?")) {
+
+			prepStmt.setString(1, emailEsp);
+			prepStmt.setString(2, passw);
+
+			ResultSet result = prepStmt.executeQuery();
+			result.beforeFirst();
+			Especialista esp = null;
+			if (result.next()) {
+				esp = new Especialista(result);
+			}
+			return esp;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	// TODO BUSCAR TODOS LOS ESPECIALISTAS QUE TRATEN A UN MISMO PACIENTE
 
 //	public List<Especialista> findAll(Connection con, Set<String> ids) {
 //		String sql = String.format("SELECT * FROM especialista",

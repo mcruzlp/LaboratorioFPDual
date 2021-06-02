@@ -1,14 +1,24 @@
 package edu.laboratoriofpdual.dao;
 
+/**
+ * Clase cita
+ *
+ * @author Cruz López Pérez
+ */
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class Cita {
 
@@ -16,38 +26,10 @@ public class Cita {
 	private int codPac;
 	private String notas;
 
-	public int getCodPac() {
-		return codPac;
-	}
-
-	public void setCodPac(int codPac) {
-		this.codPac = codPac;
-	}
-
-	public String getCodCita() {
-		return codCita;
-	}
-
-	public void setCodCita(String codCita) {
-		this.codCita = codCita;
-	}
-
-	public String getNotas() {
-		return notas;
-	}
-
-	public void setNotas(String notas) {
-		this.notas = notas;
-	}
-
-	public Cita() {
-
-	}
-
 	public Cita(ResultSet result) {
 		try {
 			this.codCita = result.getString("codCita");
-			this.setCodPac(result.getInt(Paciente.getCodPac()));
+			this.codPac = result.getInt("codPac");
 			this.notas = result.getString("notas");
 		} catch (SQLException e) {
 			e.printStackTrace();
