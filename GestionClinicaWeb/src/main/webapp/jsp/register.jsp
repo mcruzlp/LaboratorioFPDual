@@ -1,5 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="edu.laboratoriofpdual.conector.Conector"%>
@@ -22,8 +22,8 @@
 	type="image/x-icon">
 <title>Clinica Nilo-Registro</title>
 <!-- Custom fonts for this template -->
-<link href="/clinicaweb/vendor/fontawesome-free/css/all.css" rel="stylesheet"
-	type="text/css">
+<link href="/clinicaweb/vendor/fontawesome-free/css/all.css"
+	rel="stylesheet" type="text/css">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
@@ -40,22 +40,24 @@
 						<div class="text-center">
 							<h1 class="h4 text-gray-900 mb-2">Crea un usuario</h1>
 						</div>
-						<form class="user" method="post" id="nuevoUsuario" action="/clinicaweb/NuevoUsuario">
+						<form class="user" method="post" id="nuevoUsuario"
+							action="/clinicaweb/NuevoUsuario">
 							<div class="row my-2">
 								<input type="text" class="form-control form-control-user"
 									name="inputName" placeholder="Nombre y apellidos" required>
 							</div>
 							<div class="row my-2">
-                <input type="text" class="form-control form-control-user"
-                  name="inputEspecialidad" placeholder="Especialidad">
-              </div>
+								<input type="text" class="form-control form-control-user"
+									name="inputEspecialidad" placeholder="Especialidad">
+							</div>
 							<div class="row my-2">
 								<input type="email" class="form-control form-control-user"
 									name="inputEmail" placeholder="Email" required>
 							</div>
 							<div class="row my-2">
-               <input type="tel" class="form-control form-control-user" name="inputTlfn" placeholder="TelÃ©fono">
-              </div>
+								<input type="tel" class="form-control form-control-user"
+									name="inputTlfn" placeholder="Teléfono">
+							</div>
 							<div class="row my-2">
 								<div class="col-sm-6 mb-3 mb-sm-0">
 									<input type="password" class="form-control form-control-user"
@@ -63,23 +65,24 @@
 								</div>
 								<div class="col-sm-6">
 									<input type="password" class="form-control form-control-user"
-										name="repeatPassword" placeholder="Repite la contraseña" required>
+										name="repeatPassword" placeholder="Repite la contraseña"
+										required>
 								</div>
 							</div>
 
-							<a onclick="document.getElementById('nuevoUsuario').submit(); return false;" 
-							class="btn btn-primary btn-user btn-block">Registrar
-                usuario</a>
-              <%
-                        String mensaje = request.getParameter("Mensaje");
-                        if (mensaje != null) {
-                        %>
-                        <div class="text-center">
-                            <p><%=mensaje%></p>
-                        </div>
-                        <%
-                        }
-                        %>
+							<a
+								onclick="document.getElementById('nuevoUsuario').submit(); return false;"
+								class="btn btn-primary btn-user btn-block">Registrar usuario</a>
+							<%
+							String mensaje = (String) request.getAttribute("Mensaje");
+							if (mensaje != null) {
+							%>
+							<div class="text-center">
+								<p><%=mensaje%></p>
+							</div>
+							<%
+							}
+							%>
 						</form>
 						<hr>
 						<div class="text-center">
