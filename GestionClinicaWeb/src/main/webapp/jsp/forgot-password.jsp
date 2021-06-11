@@ -71,10 +71,10 @@
 						</form>
 						<hr>
 						<div class="text-center">
-							<a class="small" href="register.html">Crear usuario nuevo</a>
+							<a class="small" href="register.jsp">Crear usuario nuevo</a>
 						</div>
 						<div class="text-center">
-							<a class="small" href="index.html">¿Ya tienes usuario?
+							<a class="small" href="index.jsp">¿Ya tienes usuario?
 								Identifícate</a>
 						</div>
 					</div>
